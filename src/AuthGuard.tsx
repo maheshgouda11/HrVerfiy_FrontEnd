@@ -1,0 +1,7 @@
+// src/AuthGuard.tsx
+import { Navigate } from "react-router-dom";
+
+export default function AuthGuard({ children }: { children: JSX.Element }) {
+  const token = localStorage.getItem("token");
+  return token ? children : <Navigate to="/login" />;
+}
