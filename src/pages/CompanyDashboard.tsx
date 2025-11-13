@@ -161,7 +161,7 @@
       setLoadingMessage("Deleting HR contact...");
       try {
         // This would need a corresponding backend endpoint
-        await API.delete("/api/company/hr-contacts/by-details", {
+        await API.delete("/api/company/hr-contacts/by-details", {     
           data: { name, email, phone }
         });
         setHrContacts(prev => prev.filter(c => 
@@ -495,7 +495,6 @@
 
               {/* Single Add */}
               <div className="space-y-4">
-                <h3 className="text-lg font-medium text-slate-800">Add Single Contact</h3>
                 <div className="grid md:grid-cols-2 gap-4">
                   <input 
                     type="text" 
@@ -615,7 +614,6 @@
 
               {/* Single Delete */}
               <div className="space-y-4">
-                <h3 className="text-lg font-medium text-slate-800">Delete Single Contact</h3>
                 <div className="grid md:grid-cols-3 gap-4">
                   <input 
                     type="text" 

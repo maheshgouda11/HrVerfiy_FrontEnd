@@ -109,7 +109,7 @@ export default function Login() {
         <motion.div variants={fadeInUp} className="bg-white rounded-2xl shadow-xl p-8">
           {/* User Type Selection */}
           <div className="mb-6">
-            <label className="block text-sm font-medium text-slate-700 mb-3">Account Type</label>
+            <label className="block text-sm font-medium text-slate-700 mb-3 text-center">Account Type</label>
             <div className="grid grid-cols-3 gap-2">
               {[
                 { type: "candidate", label: "Candidate" },
@@ -219,7 +219,7 @@ export default function Login() {
                 />
                 <span className="ml-2 text-sm text-slate-600">Remember me</span>
               </label>
-              <Link to="#" className="text-sm text-blue-600 hover:text-blue-700 font-medium">
+              <Link to="/forgot-password" className="text-sm text-blue-600 hover:text-blue-700 font-medium">
                 Forgot password?
               </Link>
             </div>
@@ -243,22 +243,6 @@ export default function Login() {
               )}
             </button>
           </form>
-
-          {/* Demo Credentials */}
-          <div className="mt-6 p-4 bg-slate-50 rounded-lg">
-            <h4 className="text-sm font-medium text-slate-900 mb-2">Demo Credentials</h4>
-            <div className="text-xs text-slate-600 space-y-1">
-              <div>
-                <strong>Candidate:</strong> candidate@demo.com / password123
-              </div>
-              <div>
-                <strong>Company:</strong> company@demo.com / password123
-              </div>
-              <div>
-                <strong>Admin:</strong> admin@demo.com / password123 + OTP 123456
-              </div>
-            </div>
-          </div>
 
           {/* Sign Up Link */}
           <div className="mt-6 text-center">

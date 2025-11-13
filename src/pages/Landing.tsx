@@ -20,7 +20,7 @@ const staggerChildren = {
 export default function Landing() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
+      
       <section className="pt-24 pb-20 px-6 lg:px-8 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
         <div className="max-w-7xl mx-auto">
           <motion.div 
@@ -34,7 +34,7 @@ export default function Landing() {
               className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-8"
             >
               <CheckCircle className="w-4 h-4 mr-2" />
-              Trusted by 10,000+ companies worldwide
+              Trusted by 100+ companies worldwide
             </motion.div>
             
             <motion.h1 
@@ -159,8 +159,8 @@ export default function Landing() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { icon: <Building className="w-6 h-6" />, number: "10,000+", label: "Verified Companies" },
-              { icon: <Users className="w-6 h-6" />, number: "50,000+", label: "HR Contacts" },
+              { icon: <Building className="w-6 h-6" />, number: "100 +", label: "Verified Companies" },
+              { icon: <Users className="w-6 h-6" />, number: "50+", label: "HR Contacts" },
               { icon: <Star className="w-6 h-6" />, number: "99.9%", label: "Accuracy Rate" },
               { icon: <Clock className="w-6 h-6" />, number: "24/7", label: "Support Available" }
             ].map((stat, index) => (
@@ -256,7 +256,7 @@ export default function Landing() {
                 <span className="text-xl font-bold">HRVerify</span>
               </div>
               <p className="text-slate-400 max-w-md mb-4">
-                The most trusted platform for HR contact verification. Protecting job seekers from employment scams since 2023.
+                The most trusted platform for HR contact verification. Protecting job seekers from employment scams since 2025.
               </p>
               <div className="flex space-x-4">
                 {['Twitter', 'LinkedIn', 'Facebook'].map((social) => (
@@ -295,7 +295,7 @@ export default function Landing() {
           </div>
           
           <div className="border-t border-slate-700 pt-8 text-center text-slate-400">
-            <p>© {new Date().getFullYear()} HRVerify. Built with ❤️ for job safety and security.</p>
+            <p>© {new Date().getFullYear()} HRVerify. Built for job safety and security.</p>
           </div>
         </div>
       </footer>

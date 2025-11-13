@@ -677,18 +677,34 @@
                   <div className="bg-white rounded-xl shadow-lg p-6">
                     <h3 className="text-lg font-semibold text-slate-900 mb-4">Platform Overview</h3>
                     <div className="space-y-4">
-                      <div className="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
-                        <span className="text-sm font-medium text-blue-900">Active Companies</span>
-                        <span className="font-bold text-blue-700">{companies.filter(c => c.status === 'APPROVED').length}</span>
-                      </div>
-                      <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
-                        <span className="text-sm font-medium text-green-900">Verified HR Contacts</span>
-                        <span className="font-bold text-green-700">{hrContacts.filter(h => h.status === 'ACTIVE').length}</span>
-                      </div>
-                      <div className="flex justify-between items-center p-3 bg-yellow-50 rounded-lg">
-                        <span className="text-sm font-medium text-yellow-900">Pending Reviews</span>
-                        <span className="font-bold text-yellow-700">{companies.filter(c => c.status === 'PENDING').length}</span>
-                      </div>
+  <div className="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
+    <span className="text-sm font-medium text-blue-900">Active Companies</span>
+    <span className="font-bold text-blue-700">
+      {Array.isArray(companies)
+        ? companies.filter(c => c.status === 'APPROVED').length
+        : 0}
+    </span>
+  </div>
+
+  <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
+    <span className="text-sm font-medium text-green-900">Verified HR Contacts</span>
+    <span className="font-bold text-green-700">
+      {Array.isArray(hrContacts)
+        ? hrContacts.filter(h => h.status === 'ACTIVE').length
+        : 0}
+    </span>
+  </div>
+
+  <div className="flex justify-between items-center p-3 bg-yellow-50 rounded-lg">
+    <span className="text-sm font-medium text-yellow-900">Pending Reviews</span>
+    <span className="font-bold text-yellow-700">
+      {Array.isArray(companies)
+        ? companies.filter(c => c.status === 'PENDING').length
+        : 0}
+    </span>
+  </div>
+
+
                       <div className="flex justify-between items-center p-3 bg-red-50 rounded-lg">
                         <span className="text-sm font-medium text-red-900">Suspended Accounts</span>
                         <span className="font-bold text-red-700">{hrContacts.filter(h => h.status === 'SUSPENDED').length}</span>

@@ -12,6 +12,7 @@ import AdminDashboard from './pages/AdminDashboard';
 import CandidateDashboard from './pages/CandidateDashboard';
 import Signup from './pages/Signup';
 import CompanyDetails from './Company/CompanyDetails';
+import ForgotPassword from './pages/ForgotPassword';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path="/admin" element={<Admin />} />
         <Route path="/login" element={<Login />} />
         <Route path="/Signup" element={<Signup/>}/>
+        <Route path="/forgot-password" element={<ForgotPassword />} />
       </Routes>
     </Router>
   );

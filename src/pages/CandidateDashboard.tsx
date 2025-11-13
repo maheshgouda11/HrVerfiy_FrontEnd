@@ -36,19 +36,26 @@ export default function CandidateDashboard() {
     loadUserReports();
   }, []);
 
-  const loadCandidateProfile = async () => {
-    try {
-      const token = localStorage.getItem("token");
-      if (token) {
-        setCandidate({ 
-          name: "John Doe", 
-          email: "candidate@demo.com" 
-        });
-      }
-    } catch (error) {
-      console.error("Failed to load candidate profile:", error);
+ const loadCandidateProfile = async () => {
+  try {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      console.error("No token found");
+      return;
     }
-  };
+
+    // Fetch candidate profile from backend
+    const response = await API.get("/api/candidate/profile", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    setCandidate(response.data);
+  } catch (error) {
+    console.error("Failed to load candidate profile:", error);
+  }
+};
 
   const loadUserReports = async () => {
     try {
@@ -251,8 +258,20 @@ export default function CandidateDashboard() {
                         <h4 className="font-semibold text-slate-900">{report.hrName} ({report.hrEmail || report.hrPhone})</h4>
                         <p className="text-sm text-slate-600">Reported on {new Date(report.reportedAt).toLocaleDateString()}</p>
                       </div>
-                      <span className={`px-3 py-1 rounded-full text-xs font-medium ${report.status === 'PENDING' ? 'bg-yellow-100 text-yellow-800' : report.status === 'UNDER_REVIEW' ? 'bg-blue-100 text-blue-800' : report.status === 'RESOLVED' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>{report.status.replace('_', ' ')}</span>
-                    </div>
+                     <span
+  className={`px-3 py-1 rounded-full text-xs font-medium ${
+    report.status === 'PENDING'
+      ? 'bg-yellow-100 text-yellow-800'
+      : report.status === 'UNDER_REVIEW'
+      ? 'bg-blue-100 text-blue-800'
+      : report.status === 'RESOLVED'
+      ? 'bg-green-100 text-green-800'
+      : 'bg-red-100 text-red-800'
+  }`}
+>
+  {report.status?.replace('_', ' ') || 'Unknown'}
+</span>
+</div>
                     <p className="text-slate-700">{report.reason}</p>
                     {report.documentPath && (<div className="mt-2 flex items-center text-sm text-slate-600"><FileText className="w-4 h-4 mr-1" />Document attached</div>)}
                   </div>
