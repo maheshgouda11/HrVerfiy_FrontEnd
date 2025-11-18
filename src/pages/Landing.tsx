@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Shield, Search, Building, CheckCircle, Users, Star, Award, Clock, ArrowRight } from "lucide-react";
+import { label, path } from "framer-motion/client";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -209,7 +210,7 @@ export default function Landing() {
                 <span className="text-white font-semibold">SM</span>
               </div>
               <div>
-                <div className="font-semibold text-slate-900">Sarah Mitchell</div>
+                <div className="font-semibold text-slate-900">Sachin HV</div>
                 <div className="text-slate-500">Software Engineer at TechCorp</div>
               </div>
             </div>
@@ -258,36 +259,40 @@ export default function Landing() {
               <p className="text-slate-400 max-w-md mb-4">
                 The most trusted platform for HR contact verification. Protecting job seekers from employment scams since 2025.
               </p>
-              <div className="flex space-x-4">
-                {['Twitter', 'LinkedIn', 'Facebook'].map((social) => (
-                  <a 
-                    key={social} 
-                    href="#" 
-                    className="text-slate-400 hover:text-white transition-colors duration-200"
-                  >
-                    {social}
-                  </a>
-                ))}
-              </div>
             </div>
             
             <div>
               <h3 className="font-semibold mb-4">Company</h3>
               <ul className="space-y-2 text-slate-400">
-                {['About Us', 'Careers', 'Press', 'Contact'].map((item) => (
-                  <li key={item}>
-                    <a href="#" className="hover:text-white transition-colors duration-200">{item}</a>
-                  </li>
-                ))}
-              </ul>
+               {[
+                 { label: "About Us", path: "/about" },
+                 { label: "Careers", path: "/careers" },
+                 { label: "Contact", path: "/contact" }
+              ].map((item) => (
+             <li key={item.label}>
+             <Link
+              to={item.path}
+              className="hover:text-white transition-colors duration-200"
+              >
+             {item.label}
+             </Link>
+             </li>
+             ))}
+            </ul>
             </div>
             
             <div>
               <h3 className="font-semibold mb-4">Legal</h3>
               <ul className="space-y-2 text-slate-400">
-                {['Privacy Policy', 'Terms of Service', 'Cookie Policy', 'GDPR'].map((item) => (
-                  <li key={item}>
-                    <a href="#" className="hover:text-white transition-colors duration-200">{item}</a>
+                {[
+                  {label:"Privacy Policy",path:""},{label:"Terms of Service",path:""},{ label:"Cookie Policy",path:""}].map((item) => (
+                  <li key={item.label}>
+                    <Link
+              to={item.path}
+              className="hover:text-white transition-colors duration-200"
+              >
+             {item.label}
+             </Link>
                   </li>
                 ))}
               </ul>
